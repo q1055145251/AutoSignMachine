@@ -94,16 +94,6 @@ jobs:
         otherConfigs: ${{secrets.bilibili_OTHERCONFIGS}}
       run: node index.js bilibili --DedeUserID=${DedeUserID} --SESSDATA=${SESSDATA} --bili_jct=${bili_jct} ${otherConfigs}
 
-    # 运行 iqiyi 签到任务
-    - name: Run iqiyi daily task
-      if: ${{ env.ENABLE_IQIYI }}
-      env:
-        P00001: ${{secrets.iqiyi_P00001}}
-        P00PRU: ${{secrets.iqiyi_P00PRU}}
-        QC005: ${{secrets.iqiyi_QC005}}
-        dfp: ${{secrets.iqiyi_DFP}}
-      run: node index.js iqiyi --P00001=${P00001} --P00PRU=${P00PRU} --QC005=${QC005} --dfp=${dfp}
-
     # 运行 unicom 签到任务
     - name: Run unicom daily task
       env:
